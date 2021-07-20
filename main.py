@@ -1,9 +1,22 @@
 from get_youtube_url_module import * 
 from open_cv_module import *
+import argparse
 
-URL = 'https://www.youtube.com/watch?v=lQy2e-aWTfY'
+# construct the argument parser and parse the arguments
+ap = argparse.ArgumentParser()
+ap.add_argument("-u", "--url", default=None,
+	help="path to input image")
 
-result = get_youtube_url(URL,'720p')
-print(len(result))
+ap.add_argument("-v", "--video", default="fall_off.mp4",
+	help="path to input image")
 
-play_video_from_url(result[0])
+ap.add_argument
+args = vars(ap.parse_args())
+
+if args["url"]:
+    URL = args["url"]
+    play_video(URL)
+
+else: 
+    play_video(args["video"])
+ 
